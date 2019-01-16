@@ -68,14 +68,14 @@ if [ "$elasticsearch" ]; then
     sudo mv /etc/elasticsearch/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml.orig
     cat << EOF | sudo tee /etc/elasticsearch/elasticsearch.yml
 #xpack.license.self_generated.type: trial
-cluster.name: "$cluster_name"
+cluster.name: $cluster_name
 network.host: _site_,_local_
 node.master: true
 node.data: false
 node.ingest: true
 path.data: /var/lib/elasticsearch
 path.logs: /var/log/elasticsearch
-discovery.zen.ping.unicast.hosts: "$discovery_nodes"
+discovery.zen.ping.unicast.hosts: $discovery_nodes
 xpack.security.enabled: true
 xpack.security.transport.ssl.enabled: true
 xpack.security.transport.ssl.verification_mode: certificate 
