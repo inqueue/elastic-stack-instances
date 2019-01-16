@@ -50,6 +50,8 @@ if [ "$elasticsearch" ]; then
             --pass "$CERT_PASSWORD"
     fi
 
+    CERT_FILE=$(realpath ~/certs.tgz)
+    sudo tar zxvf "$CERT_FILE" -C /etc/elasticsearch
     sudo chmod g+r /etc/elasticsearch/elastic-stack-ca.p12 /etc/elasticsearch/elastic-stack-certificate.p12
 
     echo "$ES_BOOTSTRAP_PW" | sudo /usr/share/elasticsearch/bin/elasticsearch-keystore \
