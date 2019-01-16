@@ -90,14 +90,13 @@ fi
 # Kibana
 if [ "$kibana" ]; then
 sudo apt-get install kibana=6.5.4
+# kibana.yml
+cat << EOF
+
+EOF
 fi
 
 # Metricbeat
 if [ "$metricbeat" ]; then 
   sudo apt-get install metricbeat=6.5.4 -y
 fi
-
-# kibana.yml
-cat << EOF
-
-EOF
